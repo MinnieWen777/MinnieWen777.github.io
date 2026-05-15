@@ -1,0 +1,96 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>ZenScape Focus Player</title>
+    <link rel="stylesheet" href="reset.css" />
+    <link rel="stylesheet" href="style.css" />
+    <script src="script.js" defer></script>
+  </head>
+
+  <body>
+    <main class="double-border">
+      <section class="intro">
+        <p class="eyebrow">Ambient Study Experience</p>
+        <h1>ZenScape Focus</h1>
+        <p class="description">
+          A calming cinematic media player designed for focus, relaxation,
+          visual ambience and immersive study sessions.
+        </p>
+      </section>
+
+      <div class="main-screen">
+        <video src="cosmic-drift.mp4" id="my-video" loop></video>
+      </div>
+
+      <div class="playlist">
+        <button class="double-border" id="stardust-vid-button">
+          Cosmic Drift
+        </button>
+        <button class="double-border" id="zenscape-vid-button">
+          Rain Window
+        </button>
+        <button class="double-border" id="musicvideo-vid-button">
+          Music Video
+        </button>
+      </div>
+
+      <div class="controls">
+        <button id="play-pause-button" class="double-border">
+          <img
+            src="https://img.icons8.com/ios-glyphs/30/play--v2.png"
+            alt="Play or pause"
+            id="play-pause-img"
+          />
+        </button>
+
+        <button id="mute-unmute-button" class="double-border">
+          <img
+            src="https://img.icons8.com/ios-glyphs/30/high-volume--v2.png"
+            alt="Mute or unmute"
+            id="mute-unmute-img"
+          />
+        </button>
+
+        <button id="fast-forward-button" class="double-border">
+          <img
+            src="https://img.icons8.com/ios-glyphs/30/fast-forward.png"
+            alt="Fast forward"
+            id="fast-forward-img"
+          />
+        </button>
+
+        <button id="step1-button" class="double-border">1</button>
+        <button id="step2-button" class="double-border">2</button>
+
+        <div id="progress-bar-container">
+          <span id="progress-bar"></span>
+        </div>
+
+        <button id="focus-mode-button" class="double-border">
+          Focus Mode
+        </button>
+
+        <div class="timer-panel">
+          <span id="focus-timer">25:00</span>
+          <span class="timer-label">study session</span>
+        </div>
+
+        <button id="fullscreen-button" class="double-border">⛶</button>
+
+        <button id="heart-button" class="double-border">
+          <span id="heart-symbol">♡</span>
+        </button>
+
+        <div id="likes"></div>
+      </div>
+    </main>
+
+    <audio id="bg-audio" src="cosmic-ambience.mp3" loop></audio>
+
+    <footer id="msg">
+      Icons by <a href="https://icons8.com/">Icons8</a>
+    </footer>
+  </body>
+</html>

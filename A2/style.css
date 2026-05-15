@@ -1,0 +1,293 @@
+body {
+  min-height: 100vh;
+  margin: 0;
+  padding: 60px 18px 32px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 18px;
+  font-family: Arial, Helvetica, sans-serif;
+  color: #f4efe8;
+  background:
+    radial-gradient(circle at top left, rgba(128, 95, 255, 0.28), transparent 32%),
+    radial-gradient(circle at bottom right, rgba(56, 189, 248, 0.2), transparent 35%),
+    linear-gradient(135deg, #070711 0%, #121426 45%, #05060c 100%);
+}
+
+a {
+  color: #d8c6ff;
+}
+
+.double-border {
+  border: 1px solid rgba(255, 255, 255, 0.22);
+  border-radius: 22px;
+}
+
+main {
+  width: min(980px, 94vw);
+  padding: 24px;
+  background: rgba(255, 255, 255, 0.09);
+  backdrop-filter: blur(18px);
+  box-shadow: 0 24px 80px rgba(0, 0, 0, 0.45);
+  transition: transform 0.4s ease, box-shadow 0.4s ease;
+}
+
+.intro {
+  text-align: center;
+  margin-bottom: 20px;
+  transition: opacity 0.3s ease;
+}
+
+.eyebrow {
+  margin-bottom: 8px;
+  font-size: 0.78rem;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: #a7d8ff;
+}
+
+h1 {
+  font-size: clamp(2.2rem, 6vw, 4.8rem);
+  font-weight: 800;
+  line-height: 1;
+  color: #ffffff;
+  text-shadow: 0 0 30px rgba(167, 216, 255, 0.55);
+}
+
+.description {
+  max-width: 650px;
+  margin: 14px auto 0;
+  font-size: 1rem;
+  line-height: 1.6;
+  color: rgba(244, 239, 232, 0.76);
+}
+
+.main-screen {
+  width: 100%;
+  padding: 10px;
+}
+
+video {
+  width: 100%;
+  max-height: 58vh;
+  object-fit: cover;
+  border-radius: 18px;
+  box-shadow: 0 18px 50px rgba(0, 0, 0, 0.55);
+  transition: filter 0.3s ease, transform 0.3s ease;
+}
+
+.main-screen,
+.controls {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.playlist,
+.controls {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.playlist {
+  padding: 18px 10px 12px;
+  transition: opacity 0.3s ease;
+}
+
+.controls {
+  padding: 16px 10px 8px;
+}
+
+button {
+  cursor: pointer;
+  min-height: 46px;
+  padding: 10px 15px;
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: #f8fbff;
+  border: 1px solid rgba(255, 255, 255, 0.22);
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.12);
+  backdrop-filter: blur(12px);
+  transition: transform 0.2s ease, background-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+button:hover {
+  transform: translateY(-2px) scale(0.96);
+  background-color: rgba(167, 216, 255, 0.18);
+  box-shadow: 0 0 22px rgba(167, 216, 255, 0.35);
+}
+
+button:active {
+  transform: scale(0.92);
+}
+
+button img {
+  width: 24px;
+  height: 24px;
+  filter: invert(1);
+}
+
+.playlist button.active-video {
+  background: linear-gradient(135deg, #a7d8ff, #d8c6ff);
+  color: #06101c;
+  box-shadow: 0 0 24px rgba(167, 216, 255, 0.45);
+}
+
+#progress-bar-container {
+  width: min(280px, 70vw);
+  height: 10px;
+  overflow: hidden;
+  border-radius: 999px;
+  background-color: rgba(255, 255, 255, 0.18);
+  cursor: pointer;
+}
+
+#progress-bar {
+  width: 0%;
+  height: 100%;
+  display: block;
+  border-radius: 999px;
+  background: linear-gradient(90deg, #a7d8ff, #d8c6ff, #ffb7d5);
+  transition: width 0.2s ease;
+}
+
+#focus-mode-button {
+  color: #06101c;
+  background: linear-gradient(135deg, #a7d8ff, #d8c6ff);
+  box-shadow: 0 0 24px rgba(216, 198, 255, 0.3);
+}
+
+.timer-panel {
+  min-width: 120px;
+  padding: 8px 12px;
+  text-align: center;
+  border-radius: 16px;
+  background: rgba(0, 0, 0, 0.22);
+  border: 1px solid rgba(255, 255, 255, 0.16);
+}
+
+#focus-timer {
+  display: block;
+  font-size: 1.2rem;
+  font-weight: 800;
+  color: #ffffff;
+}
+
+.timer-label {
+  display: block;
+  margin-top: 2px;
+  font-size: 0.65rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: rgba(244, 239, 232, 0.62);
+}
+
+#likes {
+  min-width: 28px;
+  font-size: 1.5rem;
+  font-weight: 800;
+  color: #ffb7d5;
+}
+
+#heart-symbol {
+  font-size: 1.35rem;
+  color: #ffb7d5;
+  line-height: 1;
+}
+
+#heart-button.liked {
+  animation: pulse-heart 0.35s ease;
+  box-shadow: 0 0 28px rgba(255, 183, 213, 0.5);
+}
+
+@keyframes pulse-heart {
+  0% {
+    transform: scale(1);
+  }
+
+  50% {
+    transform: scale(1.28);
+  }
+
+  100% {
+    transform: scale(1);
+  }
+}
+
+footer {
+  font-size: 0.8rem;
+  color: rgba(244, 239, 232, 0.62);
+}
+
+/*
+  Focus mode is the additional interaction added for the relaxation/study
+  context. It reduces distraction by dimming secondary interface elements,
+  making the video feel calmer, and using a 25-minute timer to support
+  focused study behaviour. The interaction connects the media player's
+  function to its chosen context rather than adding decoration only.
+*/
+body.focus-mode {
+  overflow: hidden;
+  background:
+    radial-gradient(circle at center, rgba(167, 216, 255, 0.18), transparent 36%),
+    linear-gradient(135deg, #02030a 0%, #070816 55%, #010207 100%);
+}
+
+body.focus-mode main {
+  transform: scale(1.01);
+  box-shadow: 0 0 110px rgba(167, 216, 255, 0.36);
+}
+
+body.focus-mode video {
+  filter: brightness(0.55) saturate(1.25) contrast(1.1);
+  transform: scale(1.015);
+}
+
+body.focus-mode .playlist {
+  opacity: 0.18;
+}
+
+body.focus-mode .intro {
+  opacity: 0.55;
+}
+
+body.focus-mode #focus-mode-button {
+  background: linear-gradient(135deg, #ffb7d5, #d8c6ff);
+}
+
+@media (max-width: 760px) {
+  body {
+    padding: 28px 10px;
+  }
+
+  main {
+    padding: 16px;
+  }
+
+  .description {
+    font-size: 0.9rem;
+  }
+
+  .controls {
+    gap: 8px;
+  }
+
+  button {
+    padding: 9px 12px;
+    font-size: 0.82rem;
+  }
+
+  #progress-bar-container {
+    order: 10;
+    width: 100%;
+  }
+
+  .timer-panel {
+    order: 11;
+  }
+}
