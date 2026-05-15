@@ -142,6 +142,29 @@ function seekVideo(event) {
     msg.innerHTML = "Video position updated";
   }
 }
+/*
+AI tools including ChatGPT were used to assist
+with debugging JavaScript logic, improving media
+playback behaviour, and refining interaction design.
+
+All final code decisions, styling choices,
+and feature implementations were customised
+and edited by the student.
+*/
+
+/*
+Different video modes were designed to create
+different emotional atmospheres for studying
+and relaxation.
+
+Each video has its own ambient soundtrack
+to improve immersion and create a stronger
+connection between visual and audio feedback.
+
+The looping playback behaviour was intentionally
+added so the experience feels continuous and
+non-disruptive during long focus sessions.
+*/
 
 // ----------------------------------------------------------------------
 // Playlist
