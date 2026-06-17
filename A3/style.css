@@ -1,0 +1,435 @@
+/*
+  Assignment 3 – Procedural Journey
+  Student: Suzhe Wen
+
+  This project is designed as a scroll-based immersive browser prototype.
+  The chosen interaction is scrolling, supported by hover and sound feedback.
+  The visual style is influenced by cinematic digital studios such as Active Theory,
+  where the webpage feels less like a normal site and more like a moving environment.
+
+  The design uses real image and video textures to create a stronger atmosphere.
+  The hero section uses video as a moving background so the first screen feels alive.
+  Each chapter uses a different image texture: space, organic growth, architecture,
+  and technology. These materials help communicate the transformation from natural
+  emptiness to technological complexity.
+
+  The code avoids external JavaScript and CSS libraries. All interactions are created
+  with HTML, CSS, and vanilla JavaScript. This keeps the work appropriate for the
+  assignment brief and makes the design decisions visible in the codebase.
+
+  The scroll effect is intentionally cinematic. As the user scrolls, the progress bar,
+  image parallax, text movement, and background movement all respond. This makes the
+  scroll action feel like camera movement through a procedural world rather than just
+  reading a static page. Hover is used to intensify the glow around images, making the
+  user feel that each visual object is reactive.
+
+  The final section acts as a closing state. It does not simply end the page, but returns
+  the user to atmosphere, reinforcing the concept of a cycle.
+*/
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background: #020208;
+  color: white;
+  font-family: Arial, Helvetica, sans-serif;
+  overflow-x: hidden;
+}
+
+.progress {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 4px;
+  width: 0%;
+  background: linear-gradient(90deg, #00eaff, #8d6cff, #ff4fd8);
+  z-index: 999;
+}
+
+.cursor {
+  position: fixed;
+  width: 220px;
+  height: 220px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(0, 234, 255, 0.18), transparent 70%);
+  pointer-events: none;
+  transform: translate(-50%, -50%);
+  mix-blend-mode: screen;
+  z-index: 998;
+}
+
+.grain {
+  position: fixed;
+  inset: 0;
+  background-image: radial-gradient(circle, rgba(255, 255, 255, 0.16) 1px, transparent 1px);
+  background-size: 3px 3px;
+  opacity: 0.07;
+  pointer-events: none;
+  z-index: 900;
+}
+
+.sound-button {
+  position: fixed;
+  top: 28px;
+  right: 32px;
+  z-index: 1000;
+  padding: 12px 18px;
+  border-radius: 999px;
+  border: 1px solid rgba(255, 255, 255, 0.35);
+  background: rgba(0, 0, 0, 0.45);
+  color: white;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  cursor: pointer;
+  backdrop-filter: blur(14px);
+}
+
+.hero {
+  min-height: 100vh;
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  padding: 7vw;
+}
+
+.hero-video {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0.48;
+  transform: scale(1.08);
+}
+
+.hero-overlay {
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(circle at 70% 40%, rgba(0, 234, 255, 0.28), transparent 32%),
+    radial-gradient(circle at 35% 70%, rgba(141, 108, 255, 0.28), transparent 36%),
+    linear-gradient(90deg, rgba(0, 0, 0, 0.96), rgba(0, 0, 0, 0.25));
+}
+
+.hero-content {
+  position: relative;
+  z-index: 5;
+  max-width: 1200px;
+}
+
+.meta {
+  color: #00eaff;
+  text-transform: uppercase;
+  letter-spacing: 0.22em;
+  font-size: 0.9rem;
+  font-weight: bold;
+  margin-bottom: 28px;
+}
+
+.hero h1 {
+  font-size: clamp(5rem, 14vw, 15rem);
+  line-height: 0.82;
+  letter-spacing: -0.08em;
+  text-shadow: 0 0 40px rgba(0, 234, 255, 0.55);
+}
+
+.hero p:not(.meta) {
+  margin-top: 42px;
+  max-width: 720px;
+  font-size: 1.35rem;
+  line-height: 1.65;
+  color: rgba(255, 255, 255, 0.72);
+}
+
+.hero span {
+  display: block;
+  margin-top: 70px;
+  color: rgba(255, 255, 255, 0.45);
+}
+
+.chapter {
+  min-height: 100vh;
+  padding: 8vw;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 7vw;
+  align-items: center;
+  position: relative;
+  overflow: hidden;
+  opacity: 0;
+  transform: translateY(90px) rotateX(10deg);
+  transition: opacity 0.9s ease, transform 0.9s ease;
+}
+
+.chapter.visible {
+  opacity: 1;
+  transform: translateY(0) rotateX(0deg);
+}
+
+.chapter.reverse .image {
+  order: 2;
+}
+
+.chapter::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(circle at 65% 45%, rgba(0, 234, 255, 0.16), transparent 30%),
+    #020208;
+  opacity: 0.9;
+}
+
+.image {
+  position: relative;
+  z-index: 2;
+  height: 62vh;
+  border-radius: 28px;
+  overflow: hidden;
+  background-size: cover;
+  background-position: center;
+  border: 1px solid rgba(255, 255, 255, 0.16);
+  box-shadow: 0 0 80px rgba(0, 234, 255, 0.12);
+  transform: perspective(900px) rotateY(-10deg) rotateX(4deg);
+  transition: box-shadow 0.5s ease, filter 0.5s ease;
+}
+
+.chapter.reverse .image {
+  transform: perspective(900px) rotateY(10deg) rotateX(4deg);
+}
+
+.chapter:hover .image {
+  box-shadow: 0 0 120px var(--glow);
+  filter: brightness(1.15) contrast(1.12);
+}
+
+.image::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(120deg, rgba(0, 0, 0, 0.15), rgba(0, 234, 255, 0.18)),
+    radial-gradient(circle at 70% 30%, rgba(255, 255, 255, 0.25), transparent 18%);
+  mix-blend-mode: screen;
+}
+
+.image-space {
+  background-image:
+    linear-gradient(rgba(0, 0, 0, 0.18), rgba(0, 0, 0, 0.62)),
+    url("space.jpg");
+}
+
+.image-organic {
+  background-image:
+    linear-gradient(rgba(0, 0, 0, 0.18), rgba(0, 0, 0, 0.62)),
+    url("organic.jpg");
+}
+
+.image-tunnel {
+  background-image:
+    linear-gradient(rgba(0, 0, 0, 0.05), rgba(0, 0, 0, 0.55)),
+    url("tunnel.jpg");
+}
+
+.image-technology {
+  background-image:
+    linear-gradient(rgba(0, 0, 0, 0.08), rgba(0, 0, 0, 0.62)),
+    url("technology.jpg");
+}
+
+.copy {
+  position: relative;
+  z-index: 3;
+}
+
+.copy h2 {
+  font-size: clamp(4rem, 8vw, 10rem);
+  line-height: 0.86;
+  letter-spacing: -0.075em;
+  text-shadow: 0 0 32px rgba(255, 255, 255, 0.24);
+}
+
+.copy p:not(.meta) {
+  margin-top: 36px;
+  max-width: 640px;
+  color: rgba(255, 255, 255, 0.68);
+  font-size: 1.28rem;
+  line-height: 1.7;
+}
+
+.ending {
+  min-height: 100vh;
+  padding: 8vw;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background:
+    radial-gradient(circle at center, rgba(0, 234, 255, 0.18), transparent 32%),
+    radial-gradient(circle at 70% 40%, rgba(255, 79, 216, 0.15), transparent 30%),
+    #000;
+  text-align: center;
+  overflow: hidden;
+}
+
+.ending h2 {
+  font-size: clamp(4rem, 10vw, 12rem);
+  line-height: 0.85;
+  letter-spacing: -0.08em;
+  text-shadow: 0 0 42px rgba(0, 234, 255, 0.35);
+}
+
+.ending p:not(.meta) {
+  margin-top: 32px;
+  font-size: 1.3rem;
+  color: rgba(255, 255, 255, 0.65);
+}
+
+.ending strong {
+  margin-top: 70px;
+  color: #00eaff;
+  font-size: 1.5rem;
+}
+
+@media (max-width: 900px) {
+  .chapter {
+    grid-template-columns: 1fr;
+  }
+
+  .chapter.reverse .image {
+    order: 0;
+  }
+
+  .image {
+    height: 42vh;
+  }
+
+  .copy h2 {
+    font-size: 4rem;
+  }
+}
+#particleCanvas {
+  position: fixed;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+  pointer-events: none;
+  opacity: 0.75;
+}
+
+.hero,
+.chapter,
+.ending {
+  position: relative;
+  z-index: 2;
+}
+
+.hero-video {
+  opacity: 0.62;
+  filter: contrast(1.18) saturate(1.2);
+}
+
+.hero-overlay {
+  background:
+    radial-gradient(circle at 70% 40%, rgba(0, 234, 255, 0.2), transparent 32%),
+    radial-gradient(circle at 35% 70%, rgba(141, 108, 255, 0.22), transparent 36%),
+    linear-gradient(90deg, rgba(0, 0, 0, 0.82), rgba(0, 0, 0, 0.16));
+}
+
+.technology-chapter {
+  grid-template-columns: 1fr 1fr;
+}
+
+.hud {
+  position: relative;
+  z-index: 3;
+  width: 560px;
+  height: 560px;
+  border-radius: 50%;
+  justify-self: center;
+  align-self: center;
+  background:
+    radial-gradient(circle, rgba(0, 234, 255, 0.35), transparent 12%),
+    radial-gradient(circle, rgba(255, 79, 216, 0.16), transparent 52%);
+  box-shadow:
+    0 0 80px rgba(0, 234, 255, 0.24),
+    0 0 140px rgba(255, 79, 216, 0.22);
+  transform-style: preserve-3d;
+}
+
+.hud-ring {
+  position: absolute;
+  inset: 8%;
+  border-radius: 50%;
+  border: 1px solid rgba(0, 234, 255, 0.55);
+  box-shadow: 0 0 25px rgba(0, 234, 255, 0.35);
+}
+
+.ring-a {
+  animation: spinHud 12s linear infinite;
+}
+
+.ring-b {
+  inset: 22%;
+  border-style: dashed;
+  border-color: rgba(255, 255, 255, 0.55);
+  animation: spinHudReverse 8s linear infinite;
+}
+
+.ring-c {
+  inset: 36%;
+  border-color: rgba(255, 79, 216, 0.65);
+  animation: spinHud 5s linear infinite;
+}
+
+.hud-line {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: 45%;
+  height: 2px;
+  background: linear-gradient(90deg, #00eaff, transparent);
+  transform-origin: left center;
+  animation: scanHud 4s linear infinite;
+}
+
+@keyframes spinHud {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes spinHudReverse {
+  to {
+    transform: rotate(-360deg);
+  }
+}
+
+@keyframes scanHud {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.chapter:hover .copy h2 {
+  text-shadow:
+    0 0 22px rgba(255, 255, 255, 0.55),
+    0 0 55px var(--glow);
+}
+
+@media (max-width: 900px) {
+  .hud {
+    width: 320px;
+    height: 320px;
+  }
+}

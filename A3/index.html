@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Procedural Journey</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+  <canvas id="particleCanvas"></canvas>
+  
+  <div class="progress"></div>
+  <div class="cursor"></div>
+  <div class="grain"></div>
+
+  <audio id="ambientAudio" src="morgan.mp3" loop></audio>
+  <button id="soundButton" class="sound-button">SOUND OFF</button>
+
+  <section class="hero">
+
+    <video class="hero-video" autoplay muted loop playsinline>
+      <source src="hero.mp4" type="video/mp4">
+    </video>
+
+    <div class="hero-overlay"></div>
+
+    <div class="hero-content">
+      <p class="meta">Scroll / Hover / Atmospheric Prototype</p>
+
+      <h1>
+        PROCEDURAL<br>
+        JOURNEY
+      </h1>
+
+      <p>
+        A cinematic browser experience where scrolling becomes movement through a procedural world.
+      </p>
+
+      <span>Click sound, then scroll ↓</span>
+    </div>
+
+  </section>
+
+  <main>
+
+    <section class="chapter" data-accent="#00eaff">
+      <div class="image image-space"></div>
+
+      <div class="copy">
+        <p class="meta">01 / Space</p>
+        <h2>Silence Before Form</h2>
+        <p>
+          Darkness opens into spatial depth. The user scrolls through a vast procedural universe.
+        </p>
+      </div>
+    </section>
+
+    <section class="chapter reverse" data-accent="#42ff9e">
+      <div class="image image-organic"></div>
+
+      <div class="copy">
+        <p class="meta">02 / Organic</p>
+        <h2>Life Begins To Grow</h2>
+        <p>
+          Biological textures emerge from the digital void. Growth, mutation and evolution begin.
+        </p>
+      </div>
+    </section>
+
+    <section class="chapter" data-accent="#8d6cff">
+      <div class="image image-tunnel"></div>
+
+      <div class="copy">
+        <p class="meta">03 / Structure</p>
+        <h2>Systems Become Complex</h2>
+        <p>
+          Geometry, repetition and architectural rhythm establish a procedural environment.
+        </p>
+      </div>
+    </section>
+
+    <section class="chapter reverse" data-accent="#ff4fd8">
+      <div class="image image-technology"></div>
+
+      <div class="copy">
+        <p class="meta">04 / Technology</p>
+        <h2>Interface Takes Control</h2>
+        <p>
+          Neon systems and futuristic interfaces create an immersive technological layer.
+        </p>
+      </div>
+    </section>
+
+  </main>
+
+  <section class="ending">
+    <p class="meta">05 / Return</p>
+
+    <h2>
+      Beyond The System
+    </h2>
+
+    <p>
+      After complexity, the experience collapses back into atmosphere.
+    </p>
+
+    <strong>Procedural Journey · Suzhe Wen</strong>
+  </section>
+
+  <script src="script.js"></script>
+
+</body>
+
+</html>
