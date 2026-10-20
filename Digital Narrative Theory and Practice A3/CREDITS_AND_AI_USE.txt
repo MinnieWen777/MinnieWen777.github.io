@@ -1,0 +1,17 @@
+NOT YET GONE - Credits and AI Use
+COMM2595 Digital Narrative Theory and Practice
+Student: Suzhe Wen (s4173810)
+
+Original work
+- Project concept, narrative direction, visual language and koala artwork: Suzhe Wen.
+- Website implementation: HTML, CSS and JavaScript with GSAP ScrollTrigger.
+
+Research sources
+- Australian Government Department of Climate Change, Energy, the Environment and Water (DCCEEW): Koala listing under national environmental law.
+- NSW Environment and Heritage: Koala habitat restoration guidelines.
+- NSW Environment and Heritage: NSW Koala Strategy and koala health/safety information.
+
+AI acknowledgement
+Generative AI (OpenAI ChatGPT) was used during development as an assistive tool for code troubleshooting, iteration suggestions, wording refinement and debugging of scroll-animation timing. The student reviewed, selected and revised the outputs and made the final design and narrative decisions.
+
+For the written Critical Reflection, AI use is also acknowledged in the document in accordance with RMIT guidance.

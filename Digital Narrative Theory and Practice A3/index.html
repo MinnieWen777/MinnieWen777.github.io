@@ -1,0 +1,259 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="theme-color" content="#f4f0e6" />
+  <meta name="description" content="Not Yet Gone — a first-person scrollytelling story about koala habitat loss." />
+  <title>Not Yet Gone — Koala Habitat Story</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Patrick+Hand&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to story</a>
+
+  <header class="site-header" aria-label="Primary navigation">
+    <a class="brand" href="#home" aria-label="Not Yet Gone, back to the beginning">
+      <span class="brand-mark" aria-hidden="true">✦</span>
+      <span>NOT YET GONE</span>
+    </a>
+
+    <div class="header-actions">
+      <nav class="top-nav" aria-label="Page navigation">
+        <a href="#home">Story</a>
+        <a href="#sources">Sources</a>
+      </nav>
+      <button class="motion-toggle" type="button" aria-pressed="false" aria-label="Reduce motion">
+        <span class="motion-dot" aria-hidden="true"></span>
+        <span class="motion-text">Motion on</span>
+      </button>
+    </div>
+  </header>
+
+  <aside class="story-progress" aria-label="Story progress">
+    <div class="progress-track" aria-hidden="true">
+      <div class="progress-fill"></div>
+      <div class="progress-koala"><img src="assets/koala.jpg" alt="" /></div>
+    </div>
+    <nav class="progress-labels" aria-label="Jump to chapter">
+      <a class="progress-link is-active" href="#home" data-section="Home"></a>
+      <a class="progress-link" href="#gaps" data-section="Gaps"></a>
+      <a class="progress-link" href="#ground" data-section="Ground"></a>
+      <a class="progress-link" href="#fire" data-section="Fire"></a>
+      <a class="progress-link" href="#action" data-section="Still here"></a>
+    </nav>
+  </aside>
+
+  <main id="main">
+    <section id="home" class="story-section hero-section" data-chapter="home">
+      <div class="ambient-doodles" aria-hidden="true">
+        <span class="doodle star-a">✦</span>
+        <span class="doodle ring-a">○</span>
+        <span class="doodle plus-a">＋</span>
+        <span class="doodle leaf-a">⌇</span>
+      </div>
+
+      <div class="paper-card hero-card torn-paper">
+        <div class="hero-image-wrap reveal-item">
+          <div class="photo-backdrop" aria-hidden="true"></div>
+          <img class="hero-koala" src="assets/koala.jpg" alt="Hand-drawn koala portrait from the project artwork" />
+          <span class="tape tape-top" aria-hidden="true"></span>
+          <span class="photo-caption">original koala study</span>
+        </div>
+
+        <div class="hero-copy">
+          <p class="eyebrow reveal-item">01 / HOME · A FIRST-PERSON SCROLLYTELLING STORY</p>
+          <h1 class="display-title reveal-item">This is<br />my home.</h1>
+          <p class="lead reveal-item">One koala. One home.<br />A habitat slowly disappearing.</p>
+          <p class="home-voice reveal-item">“I know these trees by shade, not by name.”</p>
+          <a class="scroll-cue reveal-item" href="#gaps">
+            <span class="scroll-label">Scroll to begin</span>
+            <span class="scroll-arrow" aria-hidden="true">↓</span>
+          </a>
+        </div>
+      </div>
+
+      <div class="mood-ribbon" aria-label="Story mood: calm, familiar, safe">
+        <span>calm</span><i></i><span>familiar</span><i></i><span>safe</span>
+      </div>
+    </section>
+
+    <section id="gaps" class="story-section habitat-section" data-chapter="gaps">
+      <div class="section-inner two-column">
+        <div class="story-copy pinned-copy">
+          <p class="eyebrow">02 / GAPS</p>
+          <h2>One tree goes.<br /><span>Then another.</span></h2>
+          <p class="narration">“When one disappears, the space between the others grows.”</p>
+          <p class="body-copy">The forest is still here, but it no longer feels connected.</p>
+          <div class="chapter-chip"><span aria-hidden="true">↘</span> scroll controls the loss</div>
+        </div>
+
+        <div class="habitat-stage" aria-label="Animated scene showing habitat fragmentation">
+          <div class="sun-disc" aria-hidden="true"></div>
+          <div class="sky-scribble" aria-hidden="true"></div>
+
+          <div class="tree-line" aria-hidden="true">
+            <div class="tree tree-a"><span class="trunk"></span><span class="crown c1"></span><span class="crown c2"></span><span class="crown c3"></span><span class="branch b1"></span></div>
+            <div class="tree tree-b removable-tree"><span class="trunk"></span><span class="crown c1"></span><span class="crown c2"></span><span class="crown c3"></span><span class="branch b1"></span></div>
+            <div class="tree tree-c"><span class="trunk"></span><span class="crown c1"></span><span class="crown c2"></span><span class="crown c3"></span><span class="branch b1"></span></div>
+            <div class="tree tree-d removable-tree"><span class="trunk"></span><span class="crown c1"></span><span class="crown c2"></span><span class="crown c3"></span><span class="branch b1"></span></div>
+            <div class="tree tree-e removable-tree"><span class="trunk"></span><span class="crown c1"></span><span class="crown c2"></span><span class="crown c3"></span><span class="branch b1"></span></div>
+          </div>
+
+          <div class="koala-small habitat-koala" aria-hidden="true"><img src="assets/koala.jpg" alt="" /></div>
+          <div class="fragment-lines" aria-hidden="true"><span></span><span></span><span></span></div>
+
+          <article class="fact-note fact-note-gaps">
+            <p class="fact-kicker">FIELD NOTE 01</p>
+            <p>Habitat fragmentation can separate koala populations and reduce safe movement between food and shelter trees.</p>
+            <a href="https://www.environment.nsw.gov.au/publications/koala-habitat-restoration-guidelines" target="_blank" rel="noreferrer">NSW habitat restoration guidance <span aria-hidden="true">↗</span></a>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="ground" class="story-section ground-section" data-chapter="ground">
+      <div class="section-inner two-column ground-grid">
+        <div class="ground-stage" aria-label="Koala moving from tree habitat toward a road">
+          <div class="tree ground-tree" aria-hidden="true"><span class="trunk"></span><span class="crown c1"></span><span class="crown c2"></span><span class="crown c3"></span><span class="branch b1"></span></div>
+          <div class="koala-small ground-koala" aria-hidden="true"><img src="assets/koala.jpg" alt="" /></div>
+
+          <div class="road" aria-hidden="true">
+            <div class="road-edge road-edge-top"></div>
+            <div class="road-line"></div>
+            <div class="road-edge road-edge-bottom"></div>
+            <div class="car car-one"><span></span></div>
+            <div class="car car-two"><span></span></div>
+          </div>
+
+          <div class="road-warning" aria-hidden="true">!</div>
+          <article class="fact-note fact-note-ground">
+            <p class="fact-kicker">FIELD NOTE 02</p>
+            <p>Roads through fragmented habitat can increase vehicle-strike risk when koalas travel on the ground.</p>
+            <a href="https://www.environment.nsw.gov.au/topics/animals-and-plants/threatened-species/programs-legislation-and-framework/nsw-koala-strategy/improving-health-and-safety-koalas" target="_blank" rel="noreferrer">NSW Koala Strategy <span aria-hidden="true">↗</span></a>
+          </article>
+        </div>
+
+        <div class="story-copy pinned-copy">
+          <p class="eyebrow">03 / GROUND</p>
+          <h2>I come down<br /><span>only when I have to.</span></h2>
+          <p class="narration">“The ground is not a path I would choose.”</p>
+          <p class="body-copy">When trees are separated, reaching food and shelter can mean crossing open ground and roads.</p>
+          <div class="chapter-chip chapter-chip-blue"><span aria-hidden="true">↘</span> road crossing risk</div>
+        </div>
+      </div>
+    </section>
+
+    <section id="fire" class="story-section fire-section" data-chapter="fire">
+      <div class="fire-backdrop" aria-hidden="true"></div>
+      <div class="ember ember-a" aria-hidden="true"></div>
+      <div class="ember ember-b" aria-hidden="true"></div>
+      <div class="ember ember-c" aria-hidden="true"></div>
+      <div class="smoke smoke-one" aria-hidden="true"></div>
+      <div class="smoke smoke-two" aria-hidden="true"></div>
+      <div class="smoke smoke-three" aria-hidden="true"></div>
+
+      <div class="section-inner fire-layout">
+        <div class="fire-visual">
+          <div class="fire-koala-wrap">
+            <img class="fire-koala" src="assets/koala.jpg" alt="Hand-drawn koala portrait fading into smoke" />
+            <div class="heat-ring heat-ring-a" aria-hidden="true"></div>
+            <div class="heat-ring heat-ring-b" aria-hidden="true"></div>
+          </div>
+          <span class="fire-caption">visibility falls as the habitat becomes unsafe</span>
+        </div>
+
+        <div class="story-copy fire-copy">
+          <p class="eyebrow">04 / FIRE</p>
+          <h2>The air changes<br /><span>before the sky does.</span></h2>
+          <p class="narration">“Smoke arrives before I understand what is missing.”</p>
+          <p class="body-copy fire-body">Fire, heat and smoke can remove food and shelter, leaving surviving koalas exposed.</p>
+
+          <article class="fact-note fact-note-fire">
+            <p class="fact-kicker">FIELD NOTE 03</p>
+            <p>Koala populations in Queensland, New South Wales and the ACT are nationally listed as endangered. Habitat loss, climate pressures and bushfire impacts are among the threats identified in government guidance.</p>
+            <a href="https://www.dcceew.gov.au/environment/biodiversity/threatened/species/koalas/listing-under-national-environmental-law" target="_blank" rel="noreferrer">National listing information <span aria-hidden="true">↗</span></a>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="action" class="story-section action-section" data-chapter="action">
+      <div class="section-inner action-layout">
+        <div class="recovery-visual" aria-hidden="true">
+          <div class="recovery-sun"></div>
+          <div class="soil-line"></div>
+          <div class="sapling">
+            <span class="stem"></span>
+            <span class="leaf leaf-left"></span>
+            <span class="leaf leaf-right"></span>
+            <span class="leaf leaf-top"></span>
+          </div>
+          <div class="koala-small final-koala"><img src="assets/koala.jpg" alt="" /></div>
+          <span class="recovery-note">not a reset — a possibility</span>
+        </div>
+
+        <div class="paper-card final-card torn-paper">
+          <p class="eyebrow">05 / STILL HERE</p>
+          <h2>I am still here.</h2>
+          <p class="final-line">“If my home returns, so can I.”</p>
+          <p class="final-explainer">Habitat recovery takes long-term protection and restoration. The next step is to learn from verified conservation work and support connected habitat.</p>
+
+          <div class="cta-grid">
+            <a class="cta-card" href="https://www.environment.nsw.gov.au/publications/koala-habitat-restoration-guidelines" target="_blank" rel="noreferrer">
+              <span class="cta-number">01</span>
+              <strong>Protect habitat</strong>
+              <small>See how connected habitat can be protected and restored.</small>
+              <i aria-hidden="true">↗</i>
+            </a>
+            <a class="cta-card" href="https://www.environment.nsw.gov.au/topics/animals-and-plants/threatened-species/programs-legislation-and-framework/nsw-koala-strategy" target="_blank" rel="noreferrer">
+              <span class="cta-number">02</span>
+              <strong>Learn more</strong>
+              <small>Explore conservation work under the NSW Koala Strategy.</small>
+              <i aria-hidden="true">↗</i>
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="sources" class="sources-section">
+      <div class="sources-wrap">
+        <p class="eyebrow">RESEARCH / SOURCES</p>
+        <h2>Research stays visible.</h2>
+        <p>The story keeps paragraphs short, but the evidence remains traceable through official sources.</p>
+
+        <div class="source-cards">
+          <a href="https://www.dcceew.gov.au/environment/biodiversity/threatened/species/koalas/listing-under-national-environmental-law" target="_blank" rel="noreferrer">
+            <span>DCCEEW</span>
+            <strong>Koala listing under national environmental law</strong>
+            <i aria-hidden="true">↗</i>
+          </a>
+          <a href="https://www.environment.nsw.gov.au/publications/koala-habitat-restoration-guidelines" target="_blank" rel="noreferrer">
+            <span>NSW Environment &amp; Heritage</span>
+            <strong>Koala habitat restoration guidelines</strong>
+            <i aria-hidden="true">↗</i>
+          </a>
+          <a href="https://www.environment.nsw.gov.au/topics/animals-and-plants/threatened-species/programs-legislation-and-framework/nsw-koala-strategy" target="_blank" rel="noreferrer">
+            <span>NSW Environment &amp; Heritage</span>
+            <strong>NSW Koala Strategy</strong>
+            <i aria-hidden="true">↗</i>
+          </a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <p><strong>NOT YET GONE</strong> · COMM2595 Digital Narrative Theory and Practice</p>
+    <p>First-person scrollytelling about koala habitat loss.</p>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>
